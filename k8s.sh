@@ -9,6 +9,7 @@ snap install microk8s --classic --channel=stable
 microk8s status
 export PATH=$PATH:/snap/bin
 
+sudo apt-get update && sudo apt-get install -yqq daemonize dbus-user-session fontconfig
 sudo daemonize /usr/bin/unshare --fork --pid --mount-proc /lib/systemd/systemd --system-unit=basic.target
 exec sudo nsenter -t $(pidof systemd) -a su - $LOGNAME
 
